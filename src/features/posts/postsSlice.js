@@ -7,7 +7,7 @@ const initialState = [
     content: "I've heard good things",
   },
   {
-    id: "1",
+    id: "2",
     title: "Slices...",
     content: "The more I say slice, the more I want pizza",
   },
@@ -16,9 +16,15 @@ const initialState = [
 const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    postAdded(state, action) {
+      state.push(action.payload);
+    },
+  },
 });
 
 export const selectAllPosts = (state) => state.posts;
+
+export const { postAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
