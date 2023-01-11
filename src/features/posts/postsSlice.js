@@ -6,6 +6,7 @@ const initialState = [
     id: "1",
     title: "Learning Redux Toolkit",
     content: "I've heard good things",
+    userName: "Mike",
     date: sub(new Date(), { minutes: 10 }).toISOString(),
     reactions: {
       thumbsUp: 3,
@@ -19,6 +20,7 @@ const initialState = [
     id: "2",
     title: "Slices...",
     content: "The more I say slice, the more I want pizza",
+    userName: "Dani",
     date: sub(new Date(), { minutes: 5 }).toISOString(),
     reactions: {
       thumbsUp: 10,
@@ -38,14 +40,14 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, content, userId) {
+      prepare(title, content, userName) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            userName,
             date: new Date().toISOString(),
-            userId,
             reactions: {
               thumbsUp: 0,
               wow: 0,
