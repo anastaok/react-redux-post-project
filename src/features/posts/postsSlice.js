@@ -61,6 +61,7 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
+
         // Adding date and reaction
         let min = 1;
         const loadedPosts = action.payload.map((post) => {
@@ -85,7 +86,9 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPosts = (state) => state.posts;
+export const selectAllPosts = (state) => state.posts.posts;
+export const getPostsStatus = (state) => state.posts.status;
+export const getPostsError = (state) => state.posts.error;
 
 export const { postAdded, reactionAdded } = postsSlice.actions;
 
