@@ -8,12 +8,9 @@ import "./index.css";
 import App from "./App";
 
 store.dispatch(fetchUsers());
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

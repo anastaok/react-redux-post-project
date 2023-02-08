@@ -15,5 +15,4 @@ const PostsExcerpt = ({ post }) => {
     </article>
   );
 };
-
 export default PostsExcerpt;
